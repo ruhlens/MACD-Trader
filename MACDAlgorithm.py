@@ -41,9 +41,9 @@ def main():
         time.sleep(1)
         currentPrice = call.get('c')[-1]
         currentTime = datetime.now().time().strftime("%H:%M:%S")
-        indicator = call.get('macd')[-1]
-        x.append(float(f'{currentPrice:.2f}'))
-        y.append(currentTime)
+        indicator = call.get('macdHist')[-1]
+        x.append(currentTime)
+        y.append(float(f'{currentPrice:.2f}'))
         if len(x) > 20:
             x.remove(x[0])
             graph.clear()
@@ -57,7 +57,7 @@ def main():
         shares = algo[2]
         price = algo[3]
         percentage = (money - 100000) / 100000
-        graph.liveGraph(y,x, buys, avBuyPrice, avSellPrice, percentage, money)
+        graph.liveGraph(x,y, buys, avBuyPrice, avSellPrice, percentage, money, indicator)
         if orderType == "B":
             buys.append(price)
         if orderType == "S":
