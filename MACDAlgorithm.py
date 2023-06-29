@@ -32,6 +32,7 @@ def main():
     avSellPrice = 0
     percentage = 0
     key = 'cc06epiad3idf21ispa0'
+    profit = 0
     while run:
         if keyboard.is_pressed("q"):
             run = False
@@ -57,7 +58,7 @@ def main():
         shares = algo[2]
         price = algo[3]
         percentage = (money - 100000) / 100000
-        graph.liveGraph(x,y, buys, avBuyPrice, avSellPrice, percentage, money, indicator)
+        graph.liveGraph(x,y, shares, avBuyPrice, avSellPrice, percentage, money, indicator, price, ticker)
         if orderType == "B":
             buys.append(price)
         if orderType == "S":
