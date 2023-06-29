@@ -1,11 +1,13 @@
 class Algorithm:
+    """Algorithms class."""
 
-    def __init__(self, indicator):
-        self.indicator = indicator
+    def __init__(self):
+        pass
 
-    def RSI(self, sellTrigger, buyTrigger, price, money, shares):
-        """RSI based algorithm that triggers when RSI reaches indicated points
+    def RSI(self, rsi, sellTrigger, buyTrigger, price, money, shares):
+        """RSI based algorithm that triggers when RSI reaches indicated points.
         Args:
+            rsi(float): The current rsi score
             sellTrigger(float): selling point in terms of rsi
             buyTrigger(float): selling point in terms of rsi
             price(float): current price
@@ -33,7 +35,7 @@ class Algorithm:
         return ['n', money, shares, price]
 
     def MACD(self, macd, sellTrigger, buyTrigger, price, money, shares):
-        """MACD based algorithm that triggers when MACD reaches indicated points
+        """MACD based algorithm that triggers when MACD reaches indicated points.
         Args:
             macd(float): the MACD value at the current point
             sellTrigger(float): selling point in terms of MACD
