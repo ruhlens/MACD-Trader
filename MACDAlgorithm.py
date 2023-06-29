@@ -1,7 +1,5 @@
 """
-THIS IS A PAPER TRADING PROGRAM BASED ON THE RSI ALGORITHM
-BUY AT RSI = 30
-SELL AT RSI = 70
+THIS IS A PAPER TRADING PROGRAM BASED ON MACD
 """
 
 from algorithms import Algorithm
@@ -11,16 +9,20 @@ from datetime import datetime
 from FinnHubData import FinnHubData
 import time
 
-#get data collection function running on a separate thread
-
 def unixTime(days):
+    """Function to calculate a timeperiod in unix form.
+    Args: 
+        days(int): the number of days to calculate in unix form 
+    Returns:
+        days * 86400: the unix form of the days argument
+    """
     return days * 86400
 
 def main():
     """Main function to handle the algorithm."""
     print("RSI Trading Algorithm Started. Press 'Q' to Close")
     run = True
-    money = 100000
+    money = 1000
     shares = 0
     x = []
     y = []
@@ -52,7 +54,7 @@ def main():
             y.remove(y[0])
             graph.clear()
         index += 1
-        algo = Algorithm(indicator).MACD(indicator, 0, 0, currentPrice, money, shares)
+        algo = Algorithm().MACD(indicator, 0, 0, currentPrice, money, shares)
         orderType = algo[0]
         money = algo[1]
         shares = algo[2]
