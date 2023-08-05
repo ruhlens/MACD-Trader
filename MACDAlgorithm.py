@@ -20,7 +20,7 @@ def unixTime(days):
 
 def main():
     """Main function to handle the algorithm."""
-    print("RSI Trading Algorithm Started. Press 'Q' to Close")
+    print("MACD Trading Algorithm Started. Press 'Q' to Close")
     run = True
     money = 1000
     shares = 0
